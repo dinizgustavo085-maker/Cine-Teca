@@ -1,4 +1,4 @@
-let chaveapic = " 9b87dd9b"
+let chaveapic = "9b87dd9b"
 // Função para buscar filmes pelo título
 function buscarFilmes(){
     try {
@@ -11,21 +11,31 @@ function buscarFilmes(){
     let resposta = fetch(url); 
     // Aguardar a resposta da requisição
     let dados = await resposta.json();
-    
+    // Verificar se a resposta da API foi bem-sucedida
     if (dados.Response === "True") {
+        // Se a resposta for verdadeira, retonar os dados dos filmes 
+        document.getElementById("Title").value = dados.Search.Title;
+        document.getElementById("Year").value = dados.Search.Year;
+        document.getElementById("imdbID").value = dados.Search.imdbID;
+        document.getElementById("Type").value = dados.Search.Type;
+        document.getElementById("Poster").value = dados.Search.Poster;
         // Retornar os dados dos filmes encontrados
-        throw new Error(dados.Error ||  "Filme não encontrado");
-    };
-    // Retornar os dados dos filmes encontrados
-    return dados.Search;
-    // Exibir os filmes encontrados na página
-    }catch (error) {
-        // Exibir uma mensagem de erro para o usuário
-        alert("Filmes não encontrados ou ocorreu um erro na busca.");
-        throw new Error("Erro ao buscar filmes: " + error.message);
+        return dados.Search;
     }
-
+    // Se a resposta for falsa, lançar um erro com a mensagem de erro retornada pela API
+    throw new Error(dados.Error || "Filme não encontrado");
+    // Exibir os dados dos filmes encontrados na página
+  } catch (error) {
+    // Exibir uma mensagem de erro para o usuário
+    alert("Filmes não encontrados ou ocorreu um erro na busca.");
+    // Lançar o erro para que possa ser tratado em outro lugar
+    throw new Error("Erro ao buscar filmes: " + error.message);
+  }
 }
+
+const dadosfiles = document.getElementById ("titulo");
+
+
 // Função para buscar detalhes de um filme específico pelo IMDb ID
 function buscardestalhesfilmes(imdbID) {
     try {
@@ -36,11 +46,17 @@ function buscardestalhesfilmes(imdbID) {
         let dados = await resposta.json();
 
         if (dados.Response === "False") {
-            // Se a resposta for falsa, lançar um erro com a mensagem de erro retornada pela API
-            throw new Error(dados.Error || "Detalhes do filme não encontrados");
-        }
+        // Se a resposta for verdadeira, retonar os dados dos filmes 
+        document.getElementById("Title").value = dados.Search.Title;
+        document.getElementById("Year").value = dados.Search.Year;
+        document.getElementById("imdbID").value = dados.Search.imdbID;
+        document.getElementById("Type").value = dados.Search.Type;
+        document.getElementById("Poster").value = dados.Search.Poster;
         // Retornar os dados dos detalhes do filme
         return dados;
+        }
+        // Se a resposta for falsa, lançar um erro com a mensagem de erro retornada pela API
+        throw new Error(dados.Error || "Detalhes do filme não encontrados");
         // Exibir os detalhes do filme na página
     } catch (error) {
         // Exibir uma mensagem de erro para o usuário
@@ -49,3 +65,4 @@ function buscardestalhesfilmes(imdbID) {
         throw new Error("Erro ao buscar detalhes do filme: " + error.message);
     }
 }
+ const detalhesfilmes = document.getElementById("imdbID");

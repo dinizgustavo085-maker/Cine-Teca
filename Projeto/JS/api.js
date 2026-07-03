@@ -18,6 +18,7 @@ function busca() {
         })
 
         // converte a resposta da API em um objeto JavaScript
+        // converte a resposta da API em um objeto JavaScript
         .then(function (dados) {
             if (dados.erro) {
                 alert("Dados do filme não encontrado")
@@ -31,7 +32,9 @@ function busca() {
                 let sessaoFilmes = document.createElement("div");
 
                 // Adiciona a classe "filme" à div criada
+                // Adiciona a classe "filme" à div criada
                 sessaoFilmes.innerHTML =
+                    // Adiciona as informações do filme dentro da div
                     "<p><strong>Nome: </strong> " + dados.Search[index].Title + "</p>"+
                     "<p><strong>Ano: </strong> " + dados.Search[index].Year + "</p>" + 
                     "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>" +
@@ -43,5 +46,4 @@ function busca() {
         })
 }
 
-const campo = document.getElementById("titulo");
 

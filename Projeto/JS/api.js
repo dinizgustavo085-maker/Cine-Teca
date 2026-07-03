@@ -26,7 +26,7 @@ function busca() {
                 sessaoFilmes.innerHTML =
                     "<p><strong>Nome: </strong> " + dados.Search[index].Title + "</p>"+
                     "<p><strong>Ano: </strong> " + dados.Search[index].Year + "</p>" + 
-                    "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>"
+                    "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>"+
                     "<p><strong>Poster: </strong> " + dados.Search[index].Poster + "</p>"
                 filmes.appendChild(sessaoFilmes);
             }

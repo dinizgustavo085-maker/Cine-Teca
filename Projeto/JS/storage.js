@@ -1,4 +1,4 @@
-git commit -m "Adiciona storage.js com CRUD de avaliações e validações"//armazena todas as avaliações no localStorage.
+//armazena todas as avaliações no localStorage.
 const STORAGE_KEY = "cineteca_avaliacoes";
 
 //busca todas as avaliações salvas

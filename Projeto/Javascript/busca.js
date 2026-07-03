@@ -1,0 +1,5 @@
+function buscatitulo (){
+    
+
+    buscarFilmes(dados)
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTeca ✨ - Meu Catálogo Lindo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-secondary" style="min-height: 100vh; display: flex; flex-direction: column; font-family: sans-serif;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-light py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#" style="color: #FF80AB;">💖 CineTeca</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-muted" href="Interface.html">Buscar</a>
+                <a class="nav-link active fw-bold" href="avaliacao.html" style="color: #FF80AB;">Meus Favoritos</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        
+        <div class="row mb-3">
+            <div class="col text-center">
+                <h1 class="fw-bold display-4 text-dark" style="letter-spacing: -1px;">Sua Coleção Pessoal 🌸</h1>
+                <p class="text-muted fs-5">Seu histórico de cinema organizado por notas, sem nenhum arrependimento cinematográfico.</p>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+            <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #FFF0F5; color: #FF80AB; border: 1px solid #FFB2D1; font-size: 0.9rem;">Confort Filmes 🍿</span>
+            <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #E8EAF6; color: #3F51B5; font-size: 0.9rem;">Para Chorar 😢</span>
+            <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #F3E5F5; color: #8E24AA; font-size: 0.9rem;">Favoritos da Vida ✨</span>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center" id="containerListaAvaliacoes">
+            
+            <div class="col" style="max-width: 350px;">
+                <div class="card bg-white text-dark h-100 border-light shadow-sm rounded-4 overflow-hidden">
+                    <img src="https://via.placeholder.com/300x450" class="card-img-top object-fit-cover" style="height: 260px;" alt="Poster">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2">Exemplo de Filme</h5>
+                        
+                        <span class="badge align-self-start mb-3 px-3 py-2 rounded-pill fw-bold" style="background-color: #E1BEE7; color: #4A148C;">Nota: 5 / 5</span>
+                        
+                        <p class="card-text text-muted flex-grow-1" style="font-size: 0.95rem; line-height: 1.5;">
+                            "Aqui vai aparecer o babado ou aclamação que você escreveu lá no formulário quando o JavaScript do seu grupo carregar tudo!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Javascript/avaliacao.js"></script>
+</body>
+</html>

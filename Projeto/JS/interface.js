@@ -14,8 +14,14 @@ function salvarAvaliacao() {
     }
 
     // COMENTÁRIO: validação - verifica se a nota foi selecionada
-    if (!nota || nota < 1 || nota > 5) {
-        alert("Por favor, selecione uma nota de 1 a 5!");
+    if (!nota && nota !== 0) {
+        alert("Por favor, selecione uma nota de 0 a 5!");
+        return;
+    }
+
+    // COMENTÁRIO: validação - verifica se nota está no intervalo 0-5
+    if (nota < 0 || nota > 5) {
+        alert("A nota deve estar entre 0 e 5!");
         return;
     }
 
@@ -41,7 +47,7 @@ function salvarAvaliacao() {
             // COMENTÁRIO: URL do poster do filme
             poster: filmeAtual.Poster !== "N/A" ? filmeAtual.Poster : null,
             
-            // COMENTÁRIO: nota fornecida pelo usuário (1-5)
+            // COMENTÁRIO: nota fornecida pelo usuário (0-5)
             nota: nota,
             
             // COMENTÁRIO: resenha/opinião escrita pelo usuário
@@ -49,7 +55,7 @@ function salvarAvaliacao() {
         };
 
         // COMENTÁRIO: chama a função de storage.js que salva a avaliação no localStorage
-        salvarAvaliacao(avaliacaoFilme);
+        salvarAvaliacaoStorage(avaliacaoFilme);
 
         // COMENTÁRIO: exibe mensagem de sucesso
         alert("✨ Filme avaliado com sucesso!");

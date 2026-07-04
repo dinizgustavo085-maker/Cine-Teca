@@ -1,6 +1,3 @@
-// chave api
-const chaveapic = "9b87dd9b";
-
 // COMENTÁRIO: variável global para armazenar o filme atual com todos os seus dados
 let filmeAtual 
 
@@ -59,6 +56,28 @@ async function buscarFilme(imdbID) {
         document
             .getElementById("cardFilme")
             .classList.remove("d-none");
+
+        // COMENTÁRIO: atualiza as informações do modal com os dados do filme
+        // atualiza o poster do filme no modal
+        document.getElementById("modalFilmePoster").src =
+            detalhes.Poster !== "N/A"
+                ? detalhes.Poster
+                : "https://dummyimage.com/200x300/f5f5f5/888888&text=Sem+Poster";
+
+        // COMENTÁRIO: atualiza o título do filme no modal
+        document.getElementById("modalFilmeTitulo").textContent =
+            detalhes.Title + " (" + detalhes.Year + ")";
+
+        // COMENTÁRIO: atualiza a sinopse/plot do filme no modal
+        document.getElementById("modalFilmeSinopse").textContent =
+            detalhes.Plot || "Sinopse não disponível.";
+
+        // COMENTÁRIO: abre automaticamente o modal de avaliação após carregar os detalhes do filme
+        // usando a API do Bootstrap para mostrar o modal
+        const modalAvaliacao = new bootstrap.Modal(
+            document.getElementById("modalAvaliacao")
+        );
+        modalAvaliacao.show();
 
     }
     catch (erro) {

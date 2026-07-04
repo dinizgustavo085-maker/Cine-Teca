@@ -17,7 +17,7 @@ function buscarAvaliacoes() {
 
 //salva uma nova avaliação de filme
 //antes de salvar, valida filme duplicado, nota e resenha
-function salvarAvaliacao(filme) {
+function salvarAvaliacaoStorage(filme) {
 
     const lista = buscarAvaliacoes();
 
@@ -28,9 +28,9 @@ function salvarAvaliacao(filme) {
         throw new Error("Este filme já foi avaliado.");
     }
 
-    //erifica se a nota está entre 1 e 5
-    if (filme.nota < 1 || filme.nota > 5) {
-        throw new Error("A nota deve estar entre 1 e 5.");
+    //erifica se a nota está entre 0 e 5
+    if (filme.nota < 0 || filme.nota > 5) {
+        throw new Error("A nota deve estar entre 0 e 5.");
     }
 
     //verifica se a resenha foi preenchida.

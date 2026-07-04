@@ -34,6 +34,13 @@ function busca() {
                 // COMENTÁRIO: armazena o imdbID do filme atual para passar para a função buscarFilme()
                 const imdbID = dados.Search[index].imdbID;
 
+                // COMENTÁRIO: monta o HTML com as informações do filme
+                sessaoFilmes.innerHTML =
+                    "<p><strong>Nome: </strong> " + dados.Search[index].Title + "</p>"+
+                    "<p><strong>Ano: </strong> " + dados.Search[index].Year + "</p>" + 
+                    "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>" +
+                    "<img src='" + dados.Search[index].Poster + "' alt='Poster do filme' width='150'>";
+
                 // COMENTÁRIO: adiciona estilo CSS para indicar que a div é clicável
                 sessaoFilmes.style.cursor = "pointer";
                 sessaoFilmes.style.padding = "10px";
@@ -43,16 +50,11 @@ function busca() {
                 sessaoFilmes.style.backgroundColor = "#f9f9f9";
                 
                 // COMENTÁRIO: adiciona evento de clique que chama buscarFilme() passando o imdbID
+                // Colocado DEPOIS do innerHTML para não ser perdido
                 sessaoFilmes.onclick = function() {
+                    console.log("Clicou no filme com ID: " + imdbID);
                     buscarFilme(imdbID);
                 };
-
-                // COMENTÁRIO: monta o HTML com as informações do filme
-                sessaoFilmes.innerHTML =
-                    "<p><strong>Nome: </strong> " + dados.Search[index].Title + "</p>"+
-                    "<p><strong>Ano: </strong> " + dados.Search[index].Year + "</p>" + 
-                    "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>" +
-                    "<img src='" + dados.Search[index].Poster + "' alt='Poster do filme' width='150'>";
                 
                 // COMENTÁRIO: adiciona a div à lista de filmes no HTML
                 filmes.appendChild(sessaoFilmes);

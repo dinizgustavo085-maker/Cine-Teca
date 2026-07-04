@@ -26,8 +26,8 @@
                 <p class="text-muted fs-5 mb-5">Pesquise por títulos em inglês e crie uma coleção linda de avaliações. ✨</p>
                 
                 <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden border border-light">
-                    <input type="text" id="inputBusca" class="form-control border-0 bg-light text-dark px-4" placeholder="Buscando um romance clichê ou um terror Cult?..." style="font-size: 1.1rem;">
-                    <button class="btn border-0 px-5 fw-bold text-white" type="button" id="btnBuscar" style="background-color: #FF80AB;">Buscar 🔎</button>
+                    <input type="text" id="titulo" class="form-control border-0 bg-light text-dark px-4" placeholder="Buscando um romance clichê ou um terror Cult?..." style="font-size: 1.1rem;">
+                    <button class="btn border-0 px-5 fw-bold text-white" type="button" id="titulo" style="background-color: #FF80AB;" onclick="busca()">Buscar 🔎</button>
                 </div>
                 <div id="lista-filmes"></div>
                 <!--abrimos div de lista para receber os dados dos filmes-->
@@ -74,5 +74,7 @@
 
 
     <script src="JS/storage.js"></script>
+    <script src="JS/api.js"></script>
+}
 
    

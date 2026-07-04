@@ -23,6 +23,7 @@ function salvarAvaliacaoStorage(filme) {
 
     //verifica se já existe um filme com o mesmo imdbID
     const filmeJaExiste = lista.some(item => item.imdbID === filme.imdbID);
+//add try catch para capturar o erro ao em vez de throw new
 
     if (filmeJaExiste) {
         throw new Error("Este filme já foi avaliado.");

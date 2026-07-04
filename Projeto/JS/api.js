@@ -26,19 +26,35 @@ function busca() {
             }
 
             console.log(dados.Search);
-            // percorre o array de filmes retornado pela API e cria elementos HTML para exibir as informações de cada filme
+            // COMENTÁRIO: percorre o array de filmes retornado pela API
             for (let index = 0; index < dados.Search.length; index++) {               
-                // cria um elemento div para cada filme e adiciona as informações do filme dentro dele
+                // COMENTÁRIO: cria um elemento div para cada filme
                 let sessaoFilmes = document.createElement("div");
 
-                // Adiciona a classe "filme" à div criada
-                // Adiciona a classe "filme" à div criada
+                // COMENTÁRIO: armazena o imdbID do filme atual para passar para a função buscarFilme()
+                const imdbID = dados.Search[index].imdbID;
+
+                // COMENTÁRIO: adiciona estilo CSS para indicar que a div é clicável
+                sessaoFilmes.style.cursor = "pointer";
+                sessaoFilmes.style.padding = "10px";
+                sessaoFilmes.style.border = "1px solid #ddd";
+                sessaoFilmes.style.borderRadius = "4px";
+                sessaoFilmes.style.marginBottom = "10px";
+                sessaoFilmes.style.backgroundColor = "#f9f9f9";
+                
+                // COMENTÁRIO: adiciona evento de clique que chama buscarFilme() passando o imdbID
+                sessaoFilmes.onclick = function() {
+                    buscarFilme(imdbID);
+                };
+
+                // COMENTÁRIO: monta o HTML com as informações do filme
                 sessaoFilmes.innerHTML =
-                    // Adiciona as informações do filme dentro da div
                     "<p><strong>Nome: </strong> " + dados.Search[index].Title + "</p>"+
                     "<p><strong>Ano: </strong> " + dados.Search[index].Year + "</p>" + 
                     "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>" +
                     "<img src='" + dados.Search[index].Poster + "' alt='Poster do filme' width='150'>";
+                
+                // COMENTÁRIO: adiciona a div à lista de filmes no HTML
                 filmes.appendChild(sessaoFilmes);
             }
 

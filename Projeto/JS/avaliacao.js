@@ -35,7 +35,7 @@ function carregarAvaliacoes() {
                     <img
                         src="${filme.poster || 'https://dummyimage.com/300x450/f5f5f5/888888&text=Sem+Poster'}"
                         class="card-img-top object-fit-cover"
-                        style="height:260px;"
+                        style="height:500px;"
                         alt="${filme.titulo}"
                     >
 

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineTeca ✨ - Sua Lista de Filmes Fofa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-white text-secondary" style="min-height: 100vh; display: flex; flex-direction: column; font-family: sans-serif;">
+
+<body class="bg-white text-secondary"
+    style="min-height: 100vh; display: flex; flex-direction: column; font-family: sans-serif;">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-light py-3">
         <div class="container">
@@ -19,27 +22,43 @@
     </nav>
 
     <div class="container my-auto py-5">
-        
+
         <div class="row justify-content-center mb-4">
             <div class="col-md-8 text-center">
                 <h1 class="fw-bold mb-3 display-4 text-dark" style="letter-spacing: -1px;">Sua Próxima Obsessão</h1>
-                <p class="text-muted fs-5 mb-5">Pesquise por títulos em inglês e crie uma coleção linda de avaliações. ✨</p>
-                
+                <p class="text-muted fs-5 mb-5">Pesquise por títulos em inglês e crie uma coleção linda de avaliações. ✨
+                </p>
+
+                <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+                    <span class="badge rounded-pill px-3 py-2 shadow-sm"
+                        style="background-color: #FFF0F5; color: #FF80AB; border: 1px solid #FFB2D1; font-size: 0.9rem;">Confort
+                        Filmes 🍿</span>
+                    <span class="badge rounded-pill px-3 py-2 shadow-sm"
+                        style="background-color: #E8EAF6; color: #3F51B5; font-size: 0.9rem;">Para Chorar 😢</span>
+                    <span class="badge rounded-pill px-3 py-2 shadow-sm"
+                        style="background-color: #F3E5F5; color: #8E24AA; font-size: 0.9rem;">Favoritos da Vida ✨</span>
+                </div>
+
                 <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden border border-light">
-                    <input type="text" id="titulo" class="form-control border-0 bg-light text-dark px-4" placeholder="Buscando um romance clichê ou um terror Cult?..." style="font-size: 1.1rem;">
-                    <button class="btn border-0 px-5 fw-bold text-white" type="button" id="titulo" style="background-color: #FF80AB;" onclick="busca()">Buscar 🔎</button>
+                    <input type="text" id="titulo" class="form-control border-0 bg-light text-dark px-4"
+                        placeholder="Buscando um romance clichê ou um terror Cult?..." style="font-size: 1.1rem;">
+                    <button class="btn border-0 px-5 fw-bold text-white" type="button" id="titulo"
+                        style="background-color: #FF80AB;" onclick="busca()">Buscar 🔎</button>
                 </div>
                 <div id="lista-filmes"></div>
                 <!--abrimos div de lista para receber os dados dos filmes-->
-                <div class="card bg-white text-center mx-auto mt-4 p-2 rounded-4 shadow-sm" style="max-width: 320px; border: 2px dashed #FFB2D1;">
+                <div class="card bg-white text-center mx-auto mt-4 p-2 rounded-4 shadow-sm"
+                    style="max-width: 320px; border: 2px dashed #FFB2D1;">
                     <small class="text-muted fw-bold">✨ Recomendação Semanal da CineTeca ✨</small>
                     <p class="mb-0 fw-bold" style="color: #BA68C8;">Legally Blonde (2001) 👱‍♀️💼</p>
                 </div>
 
-                <div class="alert alert-secondary bg-white border-light text-muted text-start d-flex align-items-center rounded-4 p-3 mt-4" role="alert">
+                <div class="alert alert-secondary bg-white border-light text-muted text-start d-flex align-items-center rounded-4 p-3 mt-4"
+                    role="alert">
                     <span class="me-3 fs-3">🌸</span>
                     <div style="font-size: 0.95rem;">
-                        <strong>Dica de Amiga:</strong> Como a API do OMDB fala inglês, pesquise nomes originais (tipo <em>"The Notebook"</em> ou <em>"Lady Bird"</em>). Não racha, hein!
+                        <strong>Dica de Amiga:</strong> Como a API do OMDB fala inglês, pesquise nomes originais (tipo
+                        <em>"The Notebook"</em> ou <em>"Lady Bird"</em>). Não racha, hein!
                     </div>
                 </div>
             </div>
@@ -50,16 +69,23 @@
                 <div class="card bg-white text-dark shadow-sm d-none border-light rounded-4" id="cardFilme">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300x450" id="filmePoster" class="img-fluid rounded-start-4 h-100 object-fit-cover" alt="Poster">
+                            <img src="https://via.placeholder.com/300x450" id="filmePoster"
+                                class="img-fluid rounded-start-4 h-100 object-fit-cover" alt="Poster">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body p-5 d-flex flex-column h-100 justify-content-center">
                                 <h2 class="card-title fw-bold text-dark mb-1" id="filmeTitulo">Título</h2>
-                                <span class="badge bg-light text-dark align-self-start mb-4 px-3 py-2 rounded-pill fw-bold" id="filmeAno">Ano: ----</span>
-                                <p class="card-text fs-6 text-muted mb-4" id="filmeSinopse">A sinopse do filme aparecerá aqui.</p>
-                                <p class="card-text mb-5"><small class="text-muted">Diretor: <span id="filmeDiretor" class="text-dark">----</span></small></p>
-                                
-                                <button class="btn text-white fw-bold w-100 py-3 fs-6 rounded-pill shadow-sm" data-bs-toggle="modal" data-bs-target="#modalAvaliacao" style="background-color: #BA68C8;">⭐ Dar Nota & Macetear ⭐</button>
+                                <span
+                                    class="badge bg-light text-dark align-self-start mb-4 px-3 py-2 rounded-pill fw-bold"
+                                    id="filmeAno">Ano: ----</span>
+                                <p class="card-text fs-6 text-muted mb-4" id="filmeSinopse">A sinopse do filme aparecerá
+                                    aqui.</p>
+                                <p class="card-text mb-5"><small class="text-muted">Diretor: <span id="filmeDiretor"
+                                            class="text-dark">----</span></small></p>
+
+                                <button class="btn text-white fw-bold w-100 py-3 fs-6 rounded-pill shadow-sm"
+                                    data-bs-toggle="modal" data-bs-target="#modalAvaliacao"
+                                    style="background-color: #BA68C8;">⭐ Dar Nota & Macetear ⭐</button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +99,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <!-- COMENTÁRIO: conteúdo do modal com header, body e footer -->
             <div class="modal-content bg-white rounded-4 border-light">
-                
+
                 <!-- COMENTÁRIO: cabeçalho do modal com título -->
                 <div class="modal-header border-light">
                     <h5 class="modal-title fw-bold text-dark">⭐ Avaliar Filme</h5>
@@ -82,48 +108,37 @@
 
                 <!-- COMENTÁRIO: corpo do modal com informações do filme e campos de avaliação -->
                 <div class="modal-body p-4">
-                    
+
                     <!-- COMENTÁRIO: container com layout em duas colunas (poster à esquerda, info à direita) -->
                     <div class="row g-3">
-                        
+
                         <!-- COMENTÁRIO: coluna esquerda com poster do filme -->
                         <div class="col-md-4 d-flex justify-content-center">
-                            <img 
-                                id="modalFilmePoster" 
-                                src="https://via.placeholder.com/200x300" 
-                                alt="Poster do filme"
-                                class="img-fluid rounded-3 shadow-sm"
-                                style="max-width: 100%; height: auto;"
-                            >
+                            <img id="modalFilmePoster" src="https://via.placeholder.com/200x300" alt="Poster do filme"
+                                class="img-fluid rounded-3 shadow-sm" style="max-width: 100%; height: auto;">
                         </div>
 
                         <!-- COMENTÁRIO: coluna direita com sinopse e campos de resenha/nota -->
                         <div class="col-md-8">
-                            
+
                             <!-- COMENTÁRIO: título do filme -->
                             <h6 class="fw-bold text-dark mb-2" id="modalFilmeTitulo">Título do Filme</h6>
 
                             <!-- COMENTÁRIO: sinopse/plot do filme -->
-                            <p class="text-muted small mb-3" id="modalFilmeSinopse" style="max-height: 120px; overflow-y: auto;">
+                            <p class="text-muted small mb-3" id="modalFilmeSinopse"
+                                style="max-height: 120px; overflow-y: auto;">
                                 Sinopse do filme aparecerá aqui...
                             </p>
 
                             <!-- COMENTÁRIO: campo de textarea para o usuário escrever a resenha do filme -->
                             <label for="campoResenha" class="form-label fw-bold text-dark mb-2">Sua Resenha:</label>
-                            <textarea 
-                                id="campoResenha" 
-                                class="form-control border-light rounded-3 bg-light" 
-                                rows="3" 
-                                placeholder="Escreva aqui suas impressões... 📝"
-                                style="resize: vertical;"
-                            ></textarea>
+                            <textarea id="campoResenha" class="form-control border-light rounded-3 bg-light" rows="3"
+                                placeholder="Escreva aqui suas impressões... 📝" style="resize: vertical;"></textarea>
 
                             <!-- COMENTÁRIO: campo para seleção da nota de 1 a 5 -->
-                            <label for="campoNota" class="form-label fw-bold text-dark mt-3 mb-2">Sua Nota (0 a 5):</label>
-                            <select 
-                                id="campoNota" 
-                                class="form-select border-light rounded-3 bg-light"
-                            >
+                            <label for="campoNota" class="form-label fw-bold text-dark mt-3 mb-2">Sua Nota (0 a
+                                5):</label>
+                            <select id="campoNota" class="form-select border-light rounded-3 bg-light">
                                 <option value="">-- Selecione uma nota --</option>
                                 <option value="0">⭐ (0) - Não assistir</option>
                                 <option value="1">⭐ (1) - Não recomendo</option>
@@ -146,7 +161,8 @@
                         Cancelar
                     </button>
                     <!-- COMENTÁRIO: botão de salvar que chama a função salvarAvaliacao() -->
-                    <button type="button" class="btn text-white fw-bold rounded-pill" style="background-color: #BA68C8;" onclick="salvarAvaliacao()">
+                    <button type="button" class="btn text-white fw-bold rounded-pill" style="background-color: #BA68C8;"
+                        onclick="salvarAvaliacao()">
                         💾 Salvar Avaliação
                     </button>
                 </div>
@@ -162,6 +178,5 @@
     <script src="JS/api.js"></script>
     <script src="JS/interface.js"></script>
 </body>
-</html>
 
-   
+</html>

@@ -39,7 +39,7 @@ function busca() {
                     "<p><strong>Nome: </strong> " + dados.Search[index].Title + "</p>"+
                     "<p><strong>Ano: </strong> " + dados.Search[index].Year + "</p>" + 
                     "<p><strong>Type: </strong> " + dados.Search[index].Type + "</p>" +
-                    "<img src='" + dados.Search[index].Poster + "' alt='Poster do filme' width='150'>";
+                    "<img src='" + dados.Search[index].Poster + "' alt='Poster do filme' width='300'>";
 
                 // COMENTÁRIO: adiciona estilo CSS para indicar que a div é clicável
                 sessaoFilmes.style.cursor = "pointer";

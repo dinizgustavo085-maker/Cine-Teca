@@ -52,9 +52,6 @@ Cine-Teca/
     │   ├── busca.js
     │   ├── interface.js
     │   └── storage.js
-    └── Javascript/
-        └── tetes/
-            └── teste.html
 ```
 
 ---

@@ -19,34 +19,43 @@ function buscarAvaliacoes() {
 //antes de salvar, valida filme duplicado, nota e resenha
 function salvarAvaliacaoStorage(filme) {
 
-    const lista = buscarAvaliacoes();
+    //adicionei o try/catch para capturar erros e exibir uma mensagem pro usuário que o professor tinha pedido para fazer
+    //caso o usuário tente salvar um filme duplicado uma nota inválida ou uma resenha sem nada
 
-    //verifica se já existe um filme com o mesmo imdbID
-    const filmeJaExiste = lista.some(item => item.imdbID === filme.imdbID);
-//add try catch para capturar o erro ao em vez de throw new
+    try {
 
-    if (filmeJaExiste) {
-        throw new Error("Este filme já foi avaliado.");
+        const lista = buscarAvaliacoes();
+
+        //verifica se já existe um filme com o mesmo imdbID
+        const filmeJaExiste = lista.some(item => item.imdbID === filme.imdbID);
+
+        if (filmeJaExiste) {
+            throw new Error("Este filme já foi avaliado.");
+        }
+
+        //verifica se a nota está entre 0 e 5
+        if (filme.nota < 0 || filme.nota > 5) {
+            throw new Error("A nota deve estar entre 0 e 5.");
+        }
+
+        //verifica se a resenha foi preenchida
+        if (!filme.resenha || filme.resenha.trim() === "") {
+            throw new Error("A resenha não pode estar vazia.");
+        }
+
+        //adiciona o filme à lista de avaliações
+        lista.push(filme);
+
+        //atualiza o localStorage com a nova lista
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(lista)
+        );
+
+    } catch (erro) {
+        console.error("Erro ao salvar avaliação:", erro);
+        alert(erro.message);
     }
-
-    //erifica se a nota está entre 0 e 5
-    if (filme.nota < 0 || filme.nota > 5) {
-        throw new Error("A nota deve estar entre 0 e 5.");
-    }
-
-    //verifica se a resenha foi preenchida.
-    if (!filme.resenha || filme.resenha.trim() === "") {
-        throw new Error("A resenha não pode estar vazia.");
-    }
-
-    //adiciona o filme à lista de avaliações.
-    lista.push(filme);
-
-    //atualiza o localStorage com a nova lista.
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(lista)
-    );
 }
 
 //ordena as avaliações da maior nota para a menor
